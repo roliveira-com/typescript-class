@@ -1,45 +1,44 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var Car = /** @class */ (function () {
-    // iniciando class e já requerendo um parametro
-    function Car(engine) {
-        this.engine = engine;
-    }
-    Car.prototype.DandoPartida = function () {
-        console.log("Partida iniciada com o motor: " + this.engine);
-    };
-    return Car;
-}());
-var veicle = new Car('1.8 TSI');
+"use strict";
+exports.__esModule = true;
+var vehicles_1 = require("./vehicles");
+var brasilia_amarela_1 = require("./brasilia-amarela");
+var _ = require("lodash");
+console.log(_.pad('Tyescript Class', 40, "+"));
+//CLASSE IMPLMENETADA NO MODULO vehicle.ts
+// class Car {
+//     // iniciando class e já requerendo um parametro
+//     constructor(public engine: string){
+//     }
+//     DandoPartida(){
+//         console.log(`Partida iniciada com o motor: ${this.engine}`)
+//     }
+// }
+var veicle = new vehicles_1.Car('1.8 TSI');
 veicle.DandoPartida();
-var Brasilia = /** @class */ (function (_super) {
-    __extends(Brasilia, _super);
-    function Brasilia() {
-        var _this = 
-        // acessando o parâmetros da classe pai com o operador `super` e deixando-o disponível para classe pai
-        _super.call(this, '1.8 8V') || this;
-        _this.cor = "amarela";
-        return _this;
-    }
-    Brasilia.prototype.DandoPartida = function () {
-        if (Math.random() >= 0.5) {
-            _super.prototype.DandoPartida.call(this);
-        }
-        else {
-            console.log('Motor falhou');
-        }
-    };
-    return Brasilia;
-}(Car));
-var brasilia = new Brasilia();
+//CLASSE IMPLEMENTADA NO MODULO vehicle.ts
+// class Brasilia extends Car implements Amarela{
+//     cor: string;
+//     constructor(){
+//         // acessando o parâmetros da classe pai com o operador `super` e deixando-o disponível para classe pai
+//         super('1.8 8V');
+//         this.cor = "amarela";
+//     }
+//     DandoPartida(){
+//         if(Math.random() >= 0.5){
+//             super.DandoPartida()
+//         }else{
+//             console.log('Motor falhou');
+//         }
+//     }
+// }
+var brasilia = new brasilia_amarela_1.Brasilia();
 brasilia.DandoPartida();
+//INTERFACE IMPLEMENTADA NO MODULO vehicle.ts
+// interface Amarela {
+//     // definindo a propriedade padraão para implmenetação da interface Amarela
+//     // podemos fazer com que esta propriedade seja opcional colocando o `?` logo após o nome da propriedade
+//     // cor?: string 
+//     cor: string;
+// }
 var whichBand = function (Brasilia) { return Brasilia.cor == 'amarela'; };
 console.log("Esta Banda \u00E9: " + (whichBand(brasilia) ? 'Mamonas Assassina :-)' : 'qualuqer outra banda:('));

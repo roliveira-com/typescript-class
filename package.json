@@ -16,7 +16,11 @@
     "url": "https://github.com/roliveira-com/typescript-class/issues"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.74",
     "typescript": "~2.1.0"
   },
-  "homepage": "https://github.com/roliveira-com/typescript-class#readme"
+  "homepage": "https://github.com/roliveira-com/typescript-class#readme",
+  "dependencies": {
+    "lodash": "^4.14.2"
+  }
 }
